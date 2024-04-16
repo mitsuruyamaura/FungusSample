@@ -28,6 +28,8 @@ namespace Fungus
     {
         [Tooltip("Click to advance story")]
         [SerializeField] protected ClickMode clickMode;
+        public ClickMode ClickMode { get => clickMode; set => clickMode = value; }
+
 
         [Tooltip("Delay between consecutive clicks. Useful to prevent accidentally clicking through story.")]
         [SerializeField] protected float nextClickDelay = 0f;
