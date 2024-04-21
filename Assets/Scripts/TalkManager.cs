@@ -2,6 +2,7 @@ using UnityEngine;
 using Fungus;
 using Cysharp.Threading.Tasks;
 using System.Threading;
+using UnityEngine.UI;
 using TMPro;
 
 public class TalkManager : AbstractSingleton<TalkManager>
@@ -11,7 +12,7 @@ public class TalkManager : AbstractSingleton<TalkManager>
     [SerializeField] private SayDialog sayDialog;
 
     [SerializeField] private CanvasGroup sayDialogCanvasGroup;
-    [SerializeField] private TMP_Text txtName;
+    [SerializeField] private Text txtName;   // TMP_Text
 
     private CancellationToken token;
 
@@ -81,12 +82,16 @@ public class TalkManager : AbstractSingleton<TalkManager>
         // 名前設定
         //txtName.text = localizeName;
 
+        //Debug.Log(name);
+        txtName.text = name;
+
         // メッセージをローカライズ
         //LocalizeMasterData messageData = StringManager.instance.GetLocalizeData(message);
         //string localizeMessage = messageData.languageDatas[(int)StringManager.instance.CurrentLanguage.Value];
 
         // メッセージを設定
-        flowchart.SetStringVariable("Message", message);
+        flowchart.SetStringVariable("message", message);
+        
 
         // メッセージを表示
         string blockName = "Say_" + blockNum;
